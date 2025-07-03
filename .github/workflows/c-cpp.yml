@@ -19,15 +19,15 @@ jobs:
     - name: make
       run: make
     
-  upload:
-    uses: actions/upload-artifact@v4.6.2
-    with:
-      path: ./
-  
-      if-no-files-found: error # optional, default is warn
-      
-      overwrite: true # optional, default is false
-      # If true, hidden files will be included in the artifact. If false, hidden files will be excluded from the artifact.
-  
-      include-hidden-files: true # optional, default is false
-              
+    - name: Upload Artifact:
+      uses: actions/upload-artifact@4.0
+      with:
+        path: ./
+    
+        if-no-files-found: error # optional, default is warn
+        
+        overwrite: true # optional, default is false
+        # If true, hidden files will be included in the artifact. If false, hidden files will be excluded from the artifact.
+    
+        include-hidden-files: true # optional, default is false
+                
