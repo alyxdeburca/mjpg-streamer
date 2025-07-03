@@ -1,25 +1,25 @@
-- name: C/C++ CI
+name: C/C++ CI
 
-  on:
-    push:
-      branches: [ "master" ]
-    pull_request:
-      branches: [ "master" ]
-    workflow_dispatch:
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
 
-  jobs:
-    build:
-  
-      runs-on: ubuntu-latest
-  
-      steps:
-      - uses: actions/checkout@v4
-      - name: configure
-        run: sudo apt-get install cmake libjpeg8-dev gcc g++
-      - name: make
-        run: make
-      
-- name: Upload a Build Artifact
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: configure
+      run: sudo apt-get install cmake libjpeg8-dev gcc g++
+    - name: make
+      run: make
+    
+  upload:
     uses: actions/upload-artifact@v4.6.2
     with:
       path: ./
@@ -30,4 +30,4 @@
       # If true, hidden files will be included in the artifact. If false, hidden files will be excluded from the artifact.
   
       include-hidden-files: true # optional, default is false
-            
+              
