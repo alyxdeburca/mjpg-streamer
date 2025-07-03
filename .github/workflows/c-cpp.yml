@@ -20,7 +20,7 @@ jobs:
       run: make
     
     - name: Upload Artifact
-      uses: actions/upload-artifact@4.0
+      uses: actions/upload-artifact@4.6.2
       with:
         path: ./
     
